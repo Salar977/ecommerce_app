@@ -49,7 +49,7 @@ class _IntroPageState extends State<IntroPage> {
 
             // button to go to shop
             MyButton(
-              onTap: () {},
+              onTap: () => Navigator.pushNamed(context, '/shop_page'),
               childWidget: Icon(Icons.arrow_forward)
             ),
           ],

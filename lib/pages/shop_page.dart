@@ -9,7 +9,6 @@ class ShopPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     // access products in shop
     final products = context.watch<Shop>().shop;
 
@@ -18,16 +17,43 @@ class ShopPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Shop Page'),
+        centerTitle: true,
+        actions: [
+          // go to cart button
+          IconButton(
+            onPressed: () => Navigator.pushNamed(context, '/cart_page'),
+            icon: Icon(Icons.shopping_cart_outlined)
+          ),
+        ],
       ),
       drawer: const MyDrawer(),
-      body: ListView.builder(
-        itemCount: products.length,
-        itemBuilder: (context, index) {
-          // get each individual product from shop
-          final product = products[index];
-          // return as product tile ui
-          return MyProductTile(product: product);
-        },
+      body: ListView(
+        children: [
+          const SizedBox(height: 25,),
+          // shop subtitle
+          Center(child: Text(
+            'Pick from a selected premium products',
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.inversePrimary
+            ),
+          )),
+
+          // product list
+          SizedBox(
+            height: 550,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: products.length,
+              padding: const EdgeInsets.all(15),
+              itemBuilder: (context, index) {
+                // get each individual product from shop
+                final product = products[index];
+                // return as product tile ui
+                return MyProductTile(product: product);
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -14,34 +14,44 @@ class MyDrawer extends StatelessWidget {
           Column(
             children: [
               // Logo Header
-          Container(
-            padding: const EdgeInsets.only(top: 100),
-            child: Icon(
-              Icons.shopping_bag,
-              size: 72,
-              color: Theme.of(context).colorScheme.inversePrimary,
-            ),
-          ),
+              Container(
+                padding: const EdgeInsets.only(top: 100),
+                child: Icon(
+                  Icons.shopping_bag,
+                  size: 72,
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                ),
+              ),
 
-          const SizedBox(height: 60),
+              const SizedBox(height: 60),
 
-          // shop tile
-          MyListTile(
-            text: "Shop",
-            icon: Icons.home,
-            onTap: () => Navigator.pop(context)
-          ),
+              // shop tile
+              MyListTile(
+                text: "Shop",
+                icon: Icons.home,
+                onTap: () => Navigator.pop(context),
+              ),
 
-          // cart tile
-          MyListTile(
-            text: "Cart",
-            icon: Icons.shopping_cart,
-            onTap: () {
-              Navigator.pop(context);
-              // navigate to cart page
-              Navigator.pushNamed(context, '/cart_page');
-            }
-          ),
+              // cart tile
+              MyListTile(
+                text: "Cart",
+                icon: Icons.shopping_cart,
+                onTap: () {
+                  Navigator.pop(context);
+                  // navigate to cart page
+                  Navigator.pushNamed(context, '/cart_page');
+                },
+              ),
+
+              // settings tile
+              MyListTile(
+                text: "Settings",
+                icon: Icons.settings,
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, '/settings_page');
+                },
+              ),
             ],
           ),
 
@@ -51,7 +61,7 @@ class MyDrawer extends StatelessWidget {
             child: MyListTile(
               text: "Exit",
               icon: Icons.logout,
-              onTap: () => Navigator.pushNamed(context, '/intro_page')
+              onTap: () => Navigator.pushNamed(context, '/intro_page'),
             ),
           ),
         ],

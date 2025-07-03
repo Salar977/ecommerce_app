@@ -3,7 +3,6 @@ import 'package:ecommerce_app/pages/cart_page.dart';
 import 'package:ecommerce_app/pages/intro_page.dart';
 import 'package:ecommerce_app/pages/settings_page.dart';
 import 'package:ecommerce_app/pages/shop_page.dart';
-import 'package:ecommerce_app/themes/light_mode.dart';
 import 'package:ecommerce_app/themes/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

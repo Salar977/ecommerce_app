@@ -14,11 +14,24 @@ class SettingsPage extends StatelessWidget {
         title: const Text('Settings'),
         centerTitle: true,
       ),
-      body: ListTile(
-        title: const Text('Dark Mode'),
-        trailing: Switch(
-          value: themeProvider.isDarkMode,
-          onChanged: (value) => themeProvider.toggleTheme(value)
+      body: Container(
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.primary,
+          borderRadius: BorderRadius.circular(12)
+        ),
+        margin: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              title: const Text('Dark Mode'),
+              trailing: Switch(
+                value: themeProvider.isDarkMode,
+                onChanged: (value) => themeProvider.toggleTheme(value),
+                activeColor: Theme.of(context).colorScheme.inversePrimary,
+              ),
+            ),
+          ],
         ),
       ),
     );
